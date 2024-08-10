@@ -1,0 +1,523 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "web pos",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/product": {
+      "get": {
+        "summary": "list all product",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "img": {
+                        "type": "string"
+                      },
+                      "category": {
+                        "type": "string"
+                      },
+                      "stock": {
+                        "type": "integer"
+                      },
+                      "quantity": {
+                        "type": "integer"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "01HW0HQWABFA34BKQ5S6CBK70R"
+                    ],
+                    "x-apifox-refs": {
+                      "01HW0HQWABFA34BKQ5S6CBK70R": {
+                        "$ref": "#/components/schemas/product"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "price",
+                      "img",
+                      "category",
+                      "stock",
+                      "quantity"
+                    ],
+                    "x-apifox-ignore-properties": [
+                      "id",
+                      "name",
+                      "price",
+                      "img",
+                      "category",
+                      "stock",
+                      "quantity"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4356457/apis/api-166469579-run",
+        "security": []
+      }
+    },
+    "/product/{pid}": {
+      "get": {
+        "summary": "get a product",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "img": {
+                      "type": "string"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "stock": {
+                      "type": "integer"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "01HW0HTTFRD0MX35AVWKFMY5CS"
+                  ],
+                  "x-apifox-refs": {
+                    "01HW0HTTFRD0MX35AVWKFMY5CS": {
+                      "$ref": "#/components/schemas/product"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "price",
+                    "img",
+                    "category",
+                    "stock",
+                    "quantity"
+                  ],
+                  "x-apifox-ignore-properties": [
+                    "id",
+                    "name",
+                    "price",
+                    "img",
+                    "category",
+                    "stock",
+                    "quantity"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4356457/apis/api-167145589-run",
+        "security": []
+      },
+      "patch": {
+        "summary": "change product quantity",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quantity": {
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "quantity"
+                ],
+                "required": [
+                  "quantity"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/product"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4356457/apis/api-167652290-run",
+        "security": []
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "list categories",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-apifox-refs": {
+                      "01HW2ZH8AT3BX5JRYK7N0KDBTD": {
+                        "$ref": "#/components/schemas/category",
+                        "x-apifox-overrides": {}
+                      }
+                    },
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "01HW2ZH8AT3BX5JRYK7N0KDBTD"
+                    ],
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "x-apifox-ignore-properties": [
+                      "id",
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4356457/apis/api-167145743-run",
+        "security": []
+      }
+    },
+    "/settings": {
+      "get": {
+        "summary": "list settings",
+        "x-apifox-folder": "",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "settings": {
+                        "type": "object",
+                        "properties": {
+                          "app": {
+                            "type": "string"
+                          },
+                          "store": {
+                            "type": "string"
+                          },
+                          "address_one": {
+                            "type": "string"
+                          },
+                          "address_two": {
+                            "type": "string"
+                          },
+                          "contact": {
+                            "type": "string"
+                          },
+                          "tax": {
+                            "type": "number"
+                          },
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "percentage": {
+                            "type": "integer"
+                          },
+                          "footer": {
+                            "type": "string"
+                          },
+                          "img": {
+                            "type": "string"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "01HW0J56PZVCE72773Y051TV82"
+                        ],
+                        "x-apifox-refs": {
+                          "01HW0J56PZVCE72773Y051TV82": {
+                            "$ref": "#/components/schemas/settings"
+                          }
+                        },
+                        "required": [
+                          "app",
+                          "store",
+                          "address_one",
+                          "address_two",
+                          "contact",
+                          "tax",
+                          "symbol",
+                          "percentage",
+                          "footer",
+                          "img"
+                        ],
+                        "x-apifox-ignore-properties": [
+                          "app",
+                          "store",
+                          "address_one",
+                          "address_two",
+                          "contact",
+                          "tax",
+                          "symbol",
+                          "percentage",
+                          "footer",
+                          "img"
+                        ]
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "id",
+                      "settings"
+                    ],
+                    "required": [
+                      "id",
+                      "settings"
+                    ],
+                    "x-apifox-refs": {},
+                    "x-apifox-ignore-properties": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/4356457/apis/api-167146021-run",
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "name"
+        ],
+        "required": [
+          "id",
+          "name"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "settings": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "type": "string"
+          },
+          "store": {
+            "type": "string"
+          },
+          "address_one": {
+            "type": "string"
+          },
+          "address_two": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          },
+          "tax": {
+            "type": "number"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "percentage": {
+            "type": "integer"
+          },
+          "footer": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "app",
+          "store",
+          "address_one",
+          "address_two",
+          "contact",
+          "tax",
+          "symbol",
+          "percentage",
+          "footer",
+          "img"
+        ],
+        "required": [
+          "app",
+          "store",
+          "address_one",
+          "address_two",
+          "contact",
+          "tax",
+          "symbol",
+          "percentage",
+          "footer",
+          "img"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "img": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "stock": {
+            "type": "integer"
+          },
+          "quantity": {
+            "type": "integer"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "name",
+          "price",
+          "img",
+          "category",
+          "stock",
+          "quantity"
+        ],
+        "required": [
+          "id",
+          "name",
+          "price",
+          "img",
+          "category",
+          "stock",
+          "quantity"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    },
+    "securitySchemes": {}
+  },
+  "servers": []
+}
