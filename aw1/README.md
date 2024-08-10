@@ -1,54 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/E58oe981)
-# POS in Shell
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/a6CJEAg4)
+# aw01
 
-The demo shows a simple POS system with command line interface. 
+请参考课件内给的示例（[sa-spring/cashregister](https://github.com/sa-spring/cashregister) ），用Spring container的三种configuration中的任意一种，将[AsciiPanel](https://github.com/trystan/AsciiPanel)改造为一个构件系统，要求可以创建`AsciiPanel`和不同的`AsciiFont`构件，并将其进行组装并运行。
 
-To run
+例如，可将`CP437_9x16`的`AsciiFont`组装进`AsciiPanel`，
 
-```shell
-mvn clean spring-boot:run
-```
+![](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuOfsB4xEp0n8p4lDYLNGrRLJW0YuvUULw3e7c1YRnrjM69h5SZcavgK0rGC0)
 
-Currently, it implements three commands which you can see using the `help` command.
+或将`CP437_8x8`的`AsciiFont`组装进`AsciiPanel`。
 
-```shell
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.0.4)
- 
-shell:>help
-AVAILABLE COMMANDS
+![](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuOfsB4xEp0n8p4lDYLNGrRLJW0YuvUULw3e7c1YRnrjKMCHoEQJcfG2L0m00)
 
-Built-In Commands
-        clear: Clear the shell screen.
-        exit, quit: Exit the shell.
-        help: Display help about available commands.
-        history: Display or save the history of previously run commands
-        script: Read and execute commands from a file.
-        stacktrace: Display the full stacktrace of the last error.
+要求Maven工程项目代码，参考示例（[sa-spring/cashregister](https://github.com/sa-spring/cashregister) ），实现至少两个不同的构件系统configration，且包含可直接运行的main函数。
 
-Pos Command
-        a: Add a Product to Cart
-        n: New Cart
-        p: List Products
-```
-
-Everytime a customer come to make a purchase, use `n` to create a new cart and then use `a ${productid} ${amount}` to add a product to the cart.
-
-Please make the POS system robust and fully functional by implementing more commands, for instance, print/empty/modify cart.
-
-Implementing a PosDB with real database is very much welcome. 
-
-Please use asciinema (https://asciinema.org) to record a demo and submit the url in QQ group. 
-
-And please elaborate your understanding in layered systems via this homework in your README.md.
-
-在分层系统中，系统被分为多个不同的层，将功能进行模块化的划分，这种设计利于管理和重用。
-同时，每一层只需要负责自己的功能，不需要关心其他层的实现细节，这样可以降低耦合度，提高系统的可维护性。
-但是，在具体实现是，也存在问题，例如，在本次实现中，cli负责相关的输入输出，但是有时也会负责一定的边界条件判断，
-而在biz层也会负责边界条件判断，这种交叉有可能会造成功能的不清晰和重复。还有就是层之间的通信，一定要划分明确，
-在此次的biz有一个total函数用来计算总价，但是返回为void，此时就只能在biz层中进行total的输出，这样是违背功能的模块化的。
